@@ -8,7 +8,8 @@ def golden_partition_search(f, area, limit):
     k = 0.6180339887
     a = l + (1 - k) * (r - l)
     b = l + k * (r - l)
-    while b - a < limit:
+
+    while b - a > limit:
         va = f.v(a)
         vb = f.v(b)
         if va >= vb:
@@ -56,6 +57,5 @@ def search_area_get(f, limit_count, step_length, init_val=0):
 
 
 if __name__ == '__main__':
-    print(search_area_get(Function.SimpleTest, 20, 0.25, -10))
-    print(search_area_get(Function.SimpleTest, 20, 0.25, 4))
+    print(golden_partition_search(Function.SimpleTest, [-100, 100], 0.0001))
     print("___END___\n")
