@@ -83,7 +83,12 @@ class SimpleTest:
     @staticmethod
     def g(pos):
         x = pos[0]
-        return [2*x]
+        return [2 * x]
+
+    @staticmethod
+    def h(pos):
+        x = pos[0]
+        return [2]
 
 
 if __name__ == '__main__':
