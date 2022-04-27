@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import FirstDerivativeMethod
 import Function
 import SecondDerivativeMethod
+import NonDerivativeMethod
+import HyperGradientDescent
 
 step = 0.1
 x = np.arange(-3, 3, step)
@@ -15,7 +17,10 @@ fig, ax = plt.subplots(figsize=(10, 10), dpi=300)
 # x_path, y_path = FirstDerivativeMethod.steepest_descent_method(f, [-3, - 3], 0.001, 200)
 # x_path, y_path = SecondDerivativeMethod.new_town_method(f, [-3, - 3], 0.001, 200)
 # x_path, y_path = SecondDerivativeMethod.dfp_method(f, [-3, - 3], 0.001, 200)
-x_path, y_path = SecondDerivativeMethod.bfgs_method(f, [-3, - 3], 0.001, 200)
+# x_path, y_path = SecondDerivativeMethod.bfgs_method(f, [-3, - 3], 0.001, 200)
+# x_path, y_path = NonDerivativeMethod.cyclic_coordinate_method(f, [-3, - 3], 0.001, 200)
+x_path, y_path = HyperGradientDescent.steepest_descent_method_hd(f, [-3, - 3], 0.001, 200)
+print(len(x_path))
 print(x_path)
 print(y_path)
 cs = ax.contour(X, Y, Z, 100)
